@@ -1,9 +1,9 @@
-﻿var map = L.map('map').setView([60, 8], 7);
+﻿
+var map = L.map('map', { minZoom: 12, maxZoom: 18 }).setView([58.96, 5.73], 10);
 
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}&format=image/png', {
+    attribution: '<a href="http://kartverket.no">Kartverket</a>'
 }).addTo(map);
-
 
 var geocodingAPI = "http://hotell.difi.no/api/json/stavanger/barnehager?";
 
