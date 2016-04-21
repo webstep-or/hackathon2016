@@ -1,0 +1,805 @@
+{
+	"entries": [{
+		"adresse": "Longebakke 31",
+		"lengdegrad": "5.669023",
+		"barnehagens_navn": "Ørnestein Gårdsbarnehage",
+		"oest": "308455.36",
+		"nord": "6540041.30",
+		"breddegrad": "58.956982"
+	},
+	{
+		"adresse": "Malthaugsvingen 11",
+		"lengdegrad": "5.624354",
+		"barnehagens_navn": "Aubeberget barnehage bygg Malthaug",
+		"oest": "305890.00",
+		"nord": "6540521.00",
+		"breddegrad": "58.960194"
+	},
+	{
+		"adresse": "Skredbakka 55",
+		"lengdegrad": "5.615586",
+		"barnehagens_navn": "Aubeberget barnehage bygg Skredbakka",
+		"oest": "305398.59",
+		"nord": "6540627.97",
+		"breddegrad": "58.960797"
+	},
+	{
+		"adresse": "Haugåsstubben 1D",
+		"lengdegrad": "5.728891",
+		"barnehagens_navn": "Auglend barnehage",
+		"oest": "311823.00",
+		"nord": "6538679.00",
+		"breddegrad": "58.946324"
+	},
+	{
+		"adresse": "Auglendsdalen 64",
+		"lengdegrad": "5.725503",
+		"barnehagens_navn": "Auglendsdalen barnehage",
+		"oest": "311587.70",
+		"nord": "6537924.50",
+		"breddegrad": "58.939420"
+	},
+	{
+		"adresse": "Åmøyveien 659",
+		"lengdegrad": "5.751954",
+		"barnehagens_navn": "Austre Åmøy barnehage",
+		"oest": "313652.00",
+		"nord": "6548960.00",
+		"breddegrad": "59.039303"
+	},
+	{
+		"adresse": "Børesvingen 1",
+		"lengdegrad": "5.748438",
+		"barnehagens_navn": "Børesvingen barnehage",
+		"oest": "313209.00",
+		"nord": "6544149.40",
+		"breddegrad": "58.995915"
+	},
+	{
+		"adresse": "Dusavikhagen 2",
+		"lengdegrad": "5.674175",
+		"barnehagens_navn": "Bamsebu barnehage",
+		"oest": "308923.00",
+		"nord": "6543777.00",
+		"breddegrad": "58.990747"
+	},
+	{
+		"adresse": "Heddeveien 141",
+		"lengdegrad": "5.722516",
+		"barnehagens_navn": "Bamsefaret Åpen barnehage",
+		"oest": "311196.00",
+		"nord": "6533391.00",
+		"breddegrad": "58.898636"
+	},
+	{
+		"adresse": "Heddeveien 137",
+		"lengdegrad": "5.726062",
+		"barnehagens_navn": "Bamsefaret Barnehage",
+		"oest": "311399.00",
+		"nord": "6533351.00",
+		"breddegrad": "58.898360"
+	},
+	{
+		"adresse": "Hjalmar Johansensgt 5",
+		"lengdegrad": "5.722439",
+		"barnehagens_navn": "Barnas Hus",
+		"oest": "311476.00",
+		"nord": "6539177.00",
+		"breddegrad": "58.950637"
+	},
+	{
+		"adresse": "Svend foyns gate 1",
+		"lengdegrad": "5.728344",
+		"barnehagens_navn": "Barnas Hus avd. Bekkefaret kirkes barnehage",
+		"oest": "311816.54",
+		"nord": "6539198.99",
+		"breddegrad": "58.950984"
+	},
+	{
+		"adresse": "Madlamarkveien 135",
+		"lengdegrad": "5.681237",
+		"barnehagens_navn": "Barnehagen Himmelblå",
+		"oest": "309068.80",
+		"nord": "6538399.20",
+		"breddegrad": "58.942788"
+	},
+	{
+		"adresse": "Høystamveien 15",
+		"lengdegrad": "5.704093",
+		"barnehagens_navn": "Barnehagen Tasta",
+		"oest": "310566.28",
+		"nord": "6542567.84",
+		"breddegrad": "58.981017"
+	},
+	{
+		"adresse": "Ole Reistadsvei 2",
+		"lengdegrad": "5.690923",
+		"barnehagens_navn": "Barnehagen Tjensvoll avd. Tjensås",
+		"oest": "309668.00",
+		"nord": "6539360.00",
+		"breddegrad": "58.951473"
+	},
+	{
+		"adresse": "Hemmestveitbakken 11",
+		"lengdegrad": "5.694922",
+		"barnehagens_navn": "Barnehagen Tjensvoll avd. Tjensvoll",
+		"oest": "309831.80",
+		"nord": "6539043.30",
+		"breddegrad": "58.948623"
+	},
+	{
+		"adresse": "Åroliljastien 2",
+		"lengdegrad": "5.698098",
+		"barnehagens_navn": "Barnehagene Haugtussa, Krabat og Våland avd. Haugtussa",
+		"oest": "310050.00",
+		"nord": "6538716.00",
+		"breddegrad": "58.945874"
+	},
+	{
+		"adresse": "Kjell Arholmgt 26",
+		"lengdegrad": "5.697652",
+		"barnehagens_navn": "Barnehagene Haugtussa, Krabat og Våland avd. Krabat",
+		"oest": "309986.00",
+		"nord": "6537956.00",
+		"breddegrad": "58.939028"
+	},
+	{
+		"adresse": "Rogalandsgata 15",
+		"lengdegrad": "5.736867",
+		"barnehagens_navn": "Barnehagene Haugtussa, Krabat og Våland avd. Våland",
+		"oest": "312340.70",
+		"nord": "6539870.20",
+		"breddegrad": "58.957228"
+	},
+	{
+		"adresse": "Kvernevik Ring 40",
+		"lengdegrad": "5.607706",
+		"barnehagens_navn": "Barnehagene Kvernevik og Havglimt",
+		"oest": "304996.78",
+		"nord": "6541954.43",
+		"breddegrad": "58.972627"
+	},
+	{
+		"adresse": "Alkeveien 8",
+		"lengdegrad": "5.605281",
+		"barnehagens_navn": "Barnehagene Kvernevik og Havglimt",
+		"oest": "304853.00",
+		"nord": "6541746.00",
+		"breddegrad": "58.970697"
+	},
+	{
+		"adresse": "Svend Foyns gate 3",
+		"lengdegrad": "5.727971",
+		"barnehagens_navn": "Bekketunet Barnehage",
+		"oest": "311793.00",
+		"nord": "6539156.00",
+		"breddegrad": "58.950585"
+	},
+	{
+		"adresse": "Henrik Ibsensgate 13",
+		"lengdegrad": "5.712302",
+		"barnehagens_navn": "Biå Steinerbarnehage",
+		"oest": "310898.00",
+		"nord": "6539320.00",
+		"breddegrad": "58.951663"
+	},
+	{
+		"adresse": "Figgjo gata 11",
+		"lengdegrad": "5.750672",
+		"barnehagens_navn": "Biå Steinerbarnehage",
+		"oest": "313166.00",
+		"nord": "6540480.00",
+		"breddegrad": "58.963058"
+	},
+	{
+		"adresse": "Rosenberggata 51",
+		"lengdegrad": "5.718520",
+		"barnehagens_navn": "Bjergsted barnehage",
+		"oest": "311383.00",
+		"nord": "6541899.00",
+		"breddegrad": "58.974997"
+	},
+	{
+		"adresse": "Gauselvågen 3",
+		"lengdegrad": "5.728946",
+		"barnehagens_navn": "Boganes Barnehage",
+		"oest": "311634.00",
+		"nord": "6534745.00",
+		"breddegrad": "58.910966"
+	},
+	{
+		"adresse": "Rasmus Lølands vei 1",
+		"lengdegrad": "5.720952",
+		"barnehagens_navn": "Bokkaskogen barnehage",
+		"oest": "311437.00",
+		"nord": "6540146.00",
+		"breddegrad": "58.959305"
+	},
+	{
+		"adresse": "Storåkerveien 10",
+		"lengdegrad": "5.637971",
+		"barnehagens_navn": "Bråde barnehage",
+		"oest": "306639.50",
+		"nord": "6539820.60",
+		"breddegrad": "58.954253"
+	},
+	{
+		"adresse": "Styrmannsv. 21B",
+		"lengdegrad": "5.734552",
+		"barnehagens_navn": "Buøy og Roaldsøy barnehage",
+		"oest": "312380.00",
+		"nord": "6543391.00",
+		"breddegrad": "58.988816"
+	},
+	{
+		"adresse": "Roaldsøyveien 35",
+		"lengdegrad": "5.761157",
+		"barnehagens_navn": "Buøy og Roaldsøy barnehage",
+		"oest": "313933.10",
+		"nord": "6543641.40",
+		"breddegrad": "58.991709"
+	},
+	{
+		"adresse": "Fjellfaret 41",
+		"lengdegrad": "5.697570",
+		"barnehagens_navn": "Byhaugen Barnehage SA",
+		"oest": "310176.00",
+		"nord": "6541877.00",
+		"breddegrad": "58.974267"
+	},
+	{
+		"adresse": "Hillevågveien 70",
+		"lengdegrad": "5.744277",
+		"barnehagens_navn": "Dansehagen Åpen Barnehage",
+		"oest": "312639.00",
+		"nord": "6538357.00",
+		"breddegrad": "58.945943"
+	},
+	{
+		"adresse": "Ordfører Askelandsgate 4",
+		"lengdegrad": "5.724957",
+		"barnehagens_navn": "Delfinen Barnehage AS",
+		"oest": "311424.00",
+		"nord": "6535163.00",
+		"breddegrad": "58.914614"
+	},
+	{
+		"adresse": "Heddeveien 22",
+		"lengdegrad": "5.720999",
+		"barnehagens_navn": "Djupamyrå barnehage",
+		"oest": "311096.00",
+		"nord": "6533126.00",
+		"breddegrad": "58.896212"
+	},
+	{
+		"adresse": "Dragabergveien 2",
+		"lengdegrad": "5.747692",
+		"barnehagens_navn": "Dragaberget Barnehage SA",
+		"oest": "313147.20",
+		"nord": "6543734.10",
+		"breddegrad": "58.992339"
+	},
+	{
+		"adresse": "Husabergbakken 40",
+		"lengdegrad": "5.732691",
+		"barnehagens_navn": "Dronningåsen barnehage",
+		"oest": "311784.00",
+		"nord": "6533470.00",
+		"breddegrad": "58.899658"
+	},
+	{
+		"adresse": "Gjerdeveien 144",
+		"lengdegrad": "5.676918",
+		"barnehagens_navn": "Dusavik Barnehage SA",
+		"oest": "309106.70",
+		"nord": "6544013.20",
+		"breddegrad": "58.992840"
+	},
+	{
+		"adresse": "Bretlandsgt 31",
+		"lengdegrad": "5.710713",
+		"barnehagens_navn": "Egenes Idrettsbarnehage",
+		"oest": "310874.00",
+		"nord": "6540688.00",
+		"breddegrad": "58.963913"
+	},
+	{
+		"adresse": "Rosenli 7",
+		"lengdegrad": "5.760991",
+		"barnehagens_navn": "Emmaus Barnehage",
+		"oest": "313761.00",
+		"nord": "6540341.50",
+		"breddegrad": "58.961994"
+	},
+	{
+		"adresse": "Lagerveien 21",
+		"lengdegrad": "5.703281",
+		"barnehagens_navn": "Forus åpen Barnehage",
+		"oest": "310112.99",
+		"nord": "6533669.90",
+		"breddegrad": "58.900738"
+	},
+	{
+		"adresse": "Kontorveien 9",
+		"lengdegrad": "5.701508",
+		"barnehagens_navn": "Forus Private Barnehage AS",
+		"oest": "310100.00",
+		"nord": "6533844.00",
+		"breddegrad": "58.903547"
+	},
+	{
+		"adresse": "Strandsvingen 8",
+		"lengdegrad": "5.743434",
+		"barnehagens_navn": "Frøystad Barnehage SA",
+		"oest": "312404.00",
+		"nord": "6533388.00",
+		"breddegrad": "58.899139"
+	},
+	{
+		"adresse": "Boganesv. 14 A",
+		"lengdegrad": "5.725511",
+		"barnehagens_navn": "Fredheim Barnehage",
+		"oest": "311493.30",
+		"nord": "6535798.50",
+		"breddegrad": "58.920298"
+	},
+	{
+		"adresse": "Dronningåsen 1",
+		"lengdegrad": "5.729610",
+		"barnehagens_navn": "Gauselbakken Barnehage",
+		"oest": "311637.00",
+		"nord": "6534021.00",
+		"breddegrad": "58.904476"
+	},
+	{
+		"adresse": "Heddeveien 165",
+		"lengdegrad": "5.720345",
+		"barnehagens_navn": "Gautesete Barnehage",
+		"oest": "311091.00",
+		"nord": "6533801.00",
+		"breddegrad": "58.902264"
+	},
+	{
+		"adresse": "Geitastova 11",
+		"lengdegrad": "5.739426",
+		"barnehagens_navn": "Geitastova barnehage SA",
+		"oest": "312115.80",
+		"nord": "6532327.50",
+		"breddegrad": "58.889729"
+	},
+	{
+		"adresse": "Gosenlund 14",
+		"lengdegrad": "5.690146",
+		"barnehagens_navn": "Gosen barnehage",
+		"oest": "309569.00",
+		"nord": "6538255.00",
+		"breddegrad": "58.941519"
+	},
+	{
+		"adresse": "Regimentveien 30",
+		"lengdegrad": "5.662773",
+		"barnehagens_navn": "Hafrsfjord åpen barnehage",
+		"oest": "308005.00",
+		"nord": "6538530.00",
+		"breddegrad": "58.943289"
+	},
+	{
+		"adresse": "Chr. Skredsvigsvei 23",
+		"lengdegrad": "5.690478",
+		"barnehagens_navn": "Hakkebakkeskogen Private Barnehage AS avd. Stokka",
+		"oest": "309713.00",
+		"nord": "6540767.00",
+		"breddegrad": "58.964104"
+	},
+	{
+		"adresse": "Tellusveien 55",
+		"lengdegrad": "5.697138",
+		"barnehagens_navn": "Hakkebakkeskogen Private Barnehage AS avd. Tjensvoll",
+		"oest": "310022.80",
+		"nord": "6539091.10",
+		"breddegrad": "58.949274"
+	},
+	{
+		"adresse": "Sulkes gate 30",
+		"lengdegrad": "5.678333",
+		"barnehagens_navn": "Hannes Lekestue avd. Madla",
+		"oest": "308921.00",
+		"nord": "6538933.00",
+		"breddegrad": "58.947314"
+	},
+	{
+		"adresse": "Solborgveien 35",
+		"lengdegrad": "5.700808",
+		"barnehagens_navn": "Hannes Lekestue avd. Tjensvoll",
+		"oest": "310093.40",
+		"nord": "6539356.10",
+		"breddegrad": "58.951939"
+	},
+	{
+		"adresse": "Professor Olav Hanssens vei 12",
+		"lengdegrad": "5.703923",
+		"barnehagens_navn": "Havhesten barnehage",
+		"oest": "310329.60",
+		"nord": "6537571.70",
+		"breddegrad": "58.935727"
+	},
+	{
+		"adresse": "Ofolskroken 35",
+		"lengdegrad": "5.721174",
+		"barnehagens_navn": "Heddeveien FUS barnehage",
+		"oest": "311132.00",
+		"nord": "6533659.00",
+		"breddegrad": "58.901007"
+	},
+	{
+		"adresse": "Gerd-Ragna Bloch Thorsens gate 17",
+		"lengdegrad": "5.737048",
+		"barnehagens_navn": "Hillevåg barnehage",
+		"oest": "312167.00",
+		"nord": "6539202.00",
+		"breddegrad": "58.951509"
+	},
+	{
+		"adresse": "Gerd-Ragna Bloch Thorsens gate 19",
+		"lengdegrad": "5.737048",
+		"barnehagens_navn": "Hillevåg barnehage",
+		"oest": "312242.00",
+		"nord": "6539157.00",
+		"breddegrad": "58.951509"
+	},
+	{
+		"adresse": "Vestrikroken 1",
+		"lengdegrad": "5.724527",
+		"barnehagens_navn": "Husebøstykket barnehage",
+		"oest": "311841.00",
+		"nord": "6544168.00",
+		"breddegrad": "58.995549"
+	},
+	{
+		"adresse": "Eiganesveien 175 A",
+		"lengdegrad": "5.699654",
+		"barnehagens_navn": "Husekestua Barnehage",
+		"oest": "310207.00",
+		"nord": "6540039.00",
+		"breddegrad": "58.957833"
+	},
+	{
+		"adresse": "Gunnar Warebergsgate 15",
+		"lengdegrad": "5.699355",
+		"barnehagens_navn": "IMI Åpen Barnehage",
+		"oest": "310245.00",
+		"nord": "6539772.00",
+		"breddegrad": "58.954958"
+	},
+	{
+		"adresse": "Treskeveien 3",
+		"lengdegrad": "5.654776",
+		"barnehagens_navn": "International Scool of Stavanger",
+		"oest": "307547.20",
+		"nord": "6539306.80",
+		"breddegrad": "58.949727"
+	},
+	{
+		"adresse": "Boremarkveien 2",
+		"lengdegrad": "5.720986",
+		"barnehagens_navn": "Jåttå barnehage",
+		"oest": "311173.60",
+		"nord": "6534726.40",
+		"breddegrad": "58.910512"
+	},
+	{
+		"adresse": "Haugesundsgata 27",
+		"lengdegrad": "5.755536",
+		"barnehagens_navn": "Johannes Læringssenter Barnehage",
+		"oest": "313433.00",
+		"nord": "6540941.00",
+		"breddegrad": "58.967160"
+	},
+	{
+		"adresse": "Bekkelundsgata 3",
+		"lengdegrad": "5.712267",
+		"barnehagens_navn": "Kampen barnehage",
+		"oest": "310980.80",
+		"nord": "6541301.20",
+		"breddegrad": "58.969448"
+	},
+	{
+		"adresse": "Dusavikveien 216",
+		"lengdegrad": "5.690162",
+		"barnehagens_navn": "Kanutten Barnehage",
+		"oest": "309849.00",
+		"nord": "6543882.00",
+		"breddegrad": "58.992103"
+	},
+	{
+		"adresse": "Sandsgt 1",
+		"lengdegrad": "5.741104",
+		"barnehagens_navn": "Kløvereng barnehage avd. Storhaug",
+		"oest": "312582.40",
+		"nord": "6540611.30",
+		"breddegrad": "58.964445"
+	},
+	{
+		"adresse": "Sundeveien 27 A",
+		"lengdegrad": "5.620685",
+		"barnehagens_navn": "Kløvereng barnehage avd. Sunde",
+		"oest": "305699.60",
+		"nord": "6540936.70",
+		"breddegrad": "58.963790"
+	},
+	{
+		"adresse": "Gamle Grannesveg 55",
+		"lengdegrad": "5.698856",
+		"barnehagens_navn": "Knøttene familiebarnehage ANS",
+		"oest": "309977.40",
+		"nord": "6536312.40",
+		"breddegrad": "58.924260"
+	},
+	{
+		"adresse": "Flintegata 2",
+		"lengdegrad": "5.749492",
+		"barnehagens_navn": "Kvaleberg/Vannassen barnehage",
+		"oest": "312886.00",
+		"nord": "6538561.00",
+		"breddegrad": "58.945242"
+	},
+	{
+		"adresse": "Vestvollveien 1",
+		"lengdegrad": "5.725177",
+		"barnehagens_navn": "Kvaleberg/Vannassen barnehage",
+		"oest": "311560.00",
+		"nord": "6537696.00",
+		"breddegrad": "58.937388"
+	},
+	{
+		"adresse": "Husabøåkeren 2",
+		"lengdegrad": "5.721175",
+		"barnehagens_navn": "Kvitodden barnehage",
+		"oest": "311665.99",
+		"nord": "6544535.99",
+		"breddegrad": "58.998764"
+	},
+	{
+		"adresse": "Lervigbrygga 188",
+		"lengdegrad": "5.764983",
+		"barnehagens_navn": "Læringsverkstedet barnehage Lervig Brygge",
+		"oest": "314055.70",
+		"nord": "6540800.60",
+		"breddegrad": "58.965915"
+	},
+	{
+		"adresse": "Adjunkt Hauglands gate 50",
+		"lengdegrad": "5.690767",
+		"barnehagens_navn": "Lassa barnehage",
+		"oest": "309706.00",
+		"nord": "6540291.00",
+		"breddegrad": "58.959838"
+	},
+	{
+		"adresse": "Rektor Berentsensgt 7",
+		"lengdegrad": "5.696111",
+		"barnehagens_navn": "Lassamyra barnehage",
+		"oest": "310001.00",
+		"nord": "6540037.00",
+		"breddegrad": "58.957696"
+	},
+	{
+		"adresse": "Bjerkreimsgata 4 A",
+		"lengdegrad": "5.760764",
+		"barnehagens_navn": "Lilleputt Private Familiebarnehage",
+		"oest": "313750.00",
+		"nord": "6540549.00",
+		"breddegrad": "58.963928"
+	},
+	{
+		"adresse": "Norvald Frafjords gate 42",
+		"lengdegrad": "5.691670",
+		"barnehagens_navn": "Madlavoll barnehage",
+		"oest": "309628.50",
+		"nord": "6538554.90",
+		"breddegrad": "58.945798"
+	},
+	{
+		"adresse": "Slettmyrveien 10",
+		"lengdegrad": "5.712940",
+		"barnehagens_navn": "Mariamarka barnehage",
+		"oest": "310664.00",
+		"nord": "6533817.00",
+		"breddegrad": "58.902208"
+	},
+	{
+		"adresse": "Ulabrands vei 28",
+		"lengdegrad": "5.724833",
+		"barnehagens_navn": "Marihøna private familiebarnehage",
+		"oest": "311900.08",
+		"nord": "6545004.95",
+		"breddegrad": "59.003071"
+	},
+	{
+		"adresse": "Rogalandsgata 47",
+		"lengdegrad": "5.738121",
+		"barnehagens_navn": "Maurtua barnehage",
+		"oest": "312329.00",
+		"nord": "6539461.00",
+		"breddegrad": "58.954725"
+	},
+	{
+		"adresse": "Lassaveien 6",
+		"lengdegrad": "5.694817",
+		"barnehagens_navn": "Misjonsbarnehagen Lasse Liten",
+		"oest": "309940.00",
+		"nord": "6540404.00",
+		"breddegrad": "58.961059"
+	},
+	{
+		"adresse": "Doneviksvei 27",
+		"lengdegrad": "5.605237",
+		"barnehagens_navn": "Mjughaugskogen Barnehage SA",
+		"oest": "304806.00",
+		"nord": "6540870.00",
+		"breddegrad": "58.962801"
+	},
+	{
+		"adresse": "Madlamarkveien 4",
+		"lengdegrad": "5.684526",
+		"barnehagens_navn": "Molkeholen Barnehage",
+		"oest": "309306.00",
+		"nord": "6539477.00",
+		"breddegrad": "58.952363"
+	},
+	{
+		"adresse": "Ytre Eiganesveien 3",
+		"lengdegrad": "5.698395",
+		"barnehagens_navn": "Muldvarpen barnehage",
+		"oest": "310146.20",
+		"nord": "6540168.30",
+		"breddegrad": "58.958820"
+	},
+	{
+		"adresse": "Nymansveien 67",
+		"lengdegrad": "5.748552",
+		"barnehagens_navn": "Nymansveien Barnehage",
+		"oest": "313070.00",
+		"nord": "6540981.00",
+		"breddegrad": "58.967455"
+	},
+	{
+		"adresse": "Austbøgeilen 39",
+		"lengdegrad": "5.739775",
+		"barnehagens_navn": "Qmarkå FUS Barnehage A/S",
+		"oest": "312714.00",
+		"nord": "6544081.00",
+		"breddegrad": "58.995146"
+	},
+	{
+		"adresse": "Myrveien 12",
+		"lengdegrad": "5.693193",
+		"barnehagens_navn": "Rødknappen Barnehage",
+		"oest": "309945.00",
+		"nord": "6542307.00",
+		"breddegrad": "58.978015"
+	},
+	{
+		"adresse": "Søre Ramsvigsvei 46",
+		"lengdegrad": "5.759743",
+		"barnehagens_navn": "Ramsvigskoben barnehage",
+		"oest": "313666.00",
+		"nord": "6540014.00",
+		"breddegrad": "58.959094"
+	},
+	{
+		"adresse": "Forusbeen 50",
+		"lengdegrad": "5.719114",
+		"barnehagens_navn": "Regnbuen barnehage",
+		"oest": "310968.00",
+		"nord": "6532753.00",
+		"breddegrad": "58.892813"
+	},
+	{
+		"adresse": "Åsta Kongsmors gate 22",
+		"lengdegrad": "5.680732",
+		"barnehagens_navn": "Rognebærhagen Barnehage",
+		"oest": "309034.50",
+		"nord": "6538369.10",
+		"breddegrad": "58.942463"
+	},
+	{
+		"adresse": "Sørmarkveien 22",
+		"lengdegrad": "5.722347",
+		"barnehagens_navn": "Sørmarka Arena barnehage",
+		"oest": "311314.50",
+		"nord": "6537945.30",
+		"breddegrad": "58.940462"
+	},
+	{
+		"adresse": "Øverliveien 3",
+		"lengdegrad": "5.719192",
+		"barnehagens_navn": "Sørmarka familiebarnehage",
+		"oest": "311151.00",
+		"nord": "6536386.00",
+		"breddegrad": "58.925468"
+	},
+	{
+		"adresse": "Fasanveien 19",
+		"lengdegrad": "5.682120",
+		"barnehagens_navn": "Sandal barnehage",
+		"oest": "309180.00",
+		"nord": "6539747.00",
+		"breddegrad": "58.954725"
+	},
+	{
+		"adresse": "Sandvikveien 13",
+		"lengdegrad": "5.749664",
+		"barnehagens_navn": "Sandvikveien barnehage",
+		"oest": "313001.00",
+		"nord": "6538269.00",
+		"breddegrad": "58.943093"
+	},
+	{
+		"adresse": "Jupiterveien 22",
+		"lengdegrad": "5.700921",
+		"barnehagens_navn": "Satelitten barnehage",
+		"oest": "310213.00",
+		"nord": "6538800.00",
+		"breddegrad": "58.946641"
+	},
+	{
+		"adresse": "Eskelandsvingene 18",
+		"lengdegrad": "5.670683",
+		"barnehagens_navn": "Scalabarnehagene avd. Eskelandsgeilen",
+		"oest": "308731.80",
+		"nord": "6543719.70",
+		"breddegrad": "58.990005"
+	},
+	{
+		"adresse": "Hundvåg Ring 100",
+		"lengdegrad": "5.742404",
+		"barnehagens_navn": "Scalabarnehagene avd. Krosshaugloen",
+		"oest": "312889.00",
+		"nord": "6544561.00",
+		"breddegrad": "58.999530"
+	},
+	{
+		"adresse": "Skeiehagen 37",
+		"lengdegrad": "5.723988",
+		"barnehagens_navn": "Skeie barnehage avd. Skeiehagen",
+		"oest": "311866.82",
+		"nord": "6545342.30",
+		"breddegrad": "59.006081"
+	},
+	{
+		"adresse": "Terje Vigens vei 19",
+		"lengdegrad": "5.723332",
+		"barnehagens_navn": "Skeie barnehage avd. Torsahagen",
+		"oest": "311813.01",
+		"nord": "6545004.03",
+		"breddegrad": "59.003025"
+	},
+	{
+		"adresse": "Havrestien 12",
+		"lengdegrad": "5.658340",
+		"barnehagens_navn": "Slåtthaug barnehage",
+		"oest": "307805.00",
+		"nord": "6539653.00",
+		"breddegrad": "58.953267"
+	},
+	{
+		"adresse": "Storlomveien 11",
+		"lengdegrad": "5.606746",
+		"barnehagens_navn": "Smiodden Barnepark",
+		"oest": "304736.14",
+		"nord": "6541579.90",
+		"breddegrad": "58.969108"
+	},
+	{
+		"adresse": "Tjensvollv. 44 D",
+		"lengdegrad": "5.703406",
+		"barnehagens_navn": "Solborg barnehage",
+		"oest": "310400.50",
+		"nord": "6539438.90",
+		"breddegrad": "58.952476"
+	}],
+	"page": 1,
+	"pages": 2,
+	"posts": 133
+}
