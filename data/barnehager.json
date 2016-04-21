@@ -798,6 +798,270 @@
 		"oest": "310400.50",
 		"nord": "6539438.90",
 		"breddegrad": "58.952476"
+	},
+	{
+		"adresse": "Traneveien 16b",
+		"lengdegrad": "5.609443",
+		"barnehagens_navn": "Solheim barnehage",
+		"oest": "304967.12",
+		"nord": "6541175.35",
+		"breddegrad": "58.966137"
+	},
+	{
+		"adresse": "Møllegata 66",
+		"lengdegrad": "5.724036",
+		"barnehagens_navn": "Solvang Barnehage",
+		"oest": "311666.00",
+		"nord": "6541185.00",
+		"breddegrad": "58.968717"
+	},
+	{
+		"adresse": "Godesetkroken 2",
+		"lengdegrad": "5.712300",
+		"barnehagens_navn": "Soria Moria barnehage",
+		"oest": "310600.60",
+		"nord": "6533353.20",
+		"breddegrad": "58.897982"
+	},
+	{
+		"adresse": "Skolevollen 19",
+		"lengdegrad": "5.734200",
+		"barnehagens_navn": "Steinerbarnehagen Bukkene Bruse",
+		"oest": "312088.00",
+		"nord": "6537832.00",
+		"breddegrad": "58.938845"
+	},
+	{
+		"adresse": "Johannesgate 34",
+		"lengdegrad": "5.755103",
+		"barnehagens_navn": "Steinhagen barnehage",
+		"oest": "313434.30",
+		"nord": "6540851.40",
+		"breddegrad": "58.966406"
+	},
+	{
+		"adresse": "Adjunkt Hauglands gate 50",
+		"lengdegrad": "5.690766",
+		"barnehagens_navn": "Stokka åpen barnehage",
+		"oest": "309720.79",
+		"nord": "6540265.53",
+		"breddegrad": "58.959839"
+	},
+	{
+		"adresse": "Christian Skredviksvei 27",
+		"lengdegrad": "5.690953",
+		"barnehagens_navn": "Stokka barnehage avd. Chr. Skredingsvei",
+		"oest": "309731.00",
+		"nord": "6540603.00",
+		"breddegrad": "58.962645"
+	},
+	{
+		"adresse": "Hageveien 14",
+		"lengdegrad": "5.705580",
+		"barnehagens_navn": "Stokka barnehage avd. Stokkadalen",
+		"oest": "310607.00",
+		"nord": "6541277.00",
+		"breddegrad": "58.969082"
+	},
+	{
+		"adresse": "Seehusens gate 4",
+		"lengdegrad": "5.719896",
+		"barnehagens_navn": "Stokkatunet avd. Hertervigtunet",
+		"oest": "309730.85",
+		"nord": "6540682.37",
+		"breddegrad": "58.971828"
+	},
+	{
+		"adresse": "Nedre Dalgate 68",
+		"lengdegrad": "5.745579",
+		"barnehagens_navn": "Storhaug åpen barnehage",
+		"oest": "312907.00",
+		"nord": "6541195.00",
+		"breddegrad": "58.969351"
+	},
+	{
+		"adresse": "Syftesokbakken 1",
+		"lengdegrad": "5.625791",
+		"barnehagens_navn": "Sunde barnehage",
+		"oest": "305974.00",
+		"nord": "6540536.00",
+		"breddegrad": "58.960359"
+	},
+	{
+		"adresse": "Sundelia 26",
+		"lengdegrad": "5.613210",
+		"barnehagens_navn": "Sundelia barnehage",
+		"oest": "305274.00",
+		"nord": "6541034.00",
+		"breddegrad": "58.964507"
+	},
+	{
+		"adresse": "Tastatunet 7",
+		"lengdegrad": "5.689237",
+		"barnehagens_navn": "Tastarustå barnehage",
+		"oest": "309754.86",
+		"nord": "6543031.07",
+		"breddegrad": "58.984211"
+	},
+	{
+		"adresse": "Gullfaksveien 25",
+		"lengdegrad": "5.680380",
+		"barnehagens_navn": "Tastavarden barnehage avd. Gullfaks",
+		"oest": "309266.00",
+		"nord": "6543496.00",
+		"breddegrad": "58.988382"
+	},
+	{
+		"adresse": "Stølsbrautene 3",
+		"lengdegrad": "5.694402",
+		"barnehagens_navn": "Tastavarden barnehage avd. Smiene",
+		"oest": "310031.60",
+		"nord": "6542702.40",
+		"breddegrad": "58.981493"
+	},
+	{
+		"adresse": "Gauselbakken 107",
+		"lengdegrad": "5.733554",
+		"barnehagens_navn": "The British International School of Stavanger",
+		"oest": "311835.80",
+		"nord": "6533200.70",
+		"breddegrad": "58.897191"
+	},
+	{
+		"adresse": "Magnus Karlsons gate 13",
+		"lengdegrad": "5.706074",
+		"barnehagens_navn": "Tommeliten barnehage",
+		"oest": "310530.97",
+		"nord": "6539149.95",
+		"breddegrad": "58.949978"
+	},
+	{
+		"adresse": "Brosmeveien 2 A",
+		"lengdegrad": "5.733351",
+		"barnehagens_navn": "Tordenskjold Familiebarnehage",
+		"oest": "312393.00",
+		"nord": "6545075.00",
+		"breddegrad": "59.003920"
+	},
+	{
+		"adresse": "Smietunet 80",
+		"lengdegrad": "5.685482",
+		"barnehagens_navn": "Triade Barnehage avd. Smietunet",
+		"oest": "309510.60",
+		"nord": "6542822.70",
+		"breddegrad": "58.982292"
+	},
+	{
+		"adresse": "Tarjei Vesaas vei 13",
+		"lengdegrad": "5.703845",
+		"barnehagens_navn": "Triade Barnehage avd. Veden",
+		"oest": "310568.00",
+		"nord": "6542501.00",
+		"breddegrad": "58.980036"
+	},
+	{
+		"adresse": "Eldfiskbakken 9",
+		"lengdegrad": "5.683345",
+		"barnehagens_navn": "Trollberget Barnehage",
+		"oest": "309446.00",
+		"nord": "6543685.00",
+		"breddegrad": "58.990152"
+	},
+	{
+		"adresse": "Forusmyra 5",
+		"lengdegrad": "5.743213",
+		"barnehagens_navn": "Tusenfryd Barnehage AS",
+		"oest": "312358.00",
+		"nord": "6532716.00",
+		"breddegrad": "58.893095"
+	},
+	{
+		"adresse": "Dalsetveien 7a",
+		"lengdegrad": "5.737772",
+		"barnehagens_navn": "Tyrihans Barnehage",
+		"oest": "312262.00",
+		"nord": "6537196.00",
+		"breddegrad": "58.933217"
+	},
+	{
+		"adresse": "Ulsbergbakken 65",
+		"lengdegrad": "5.729378",
+		"barnehagens_navn": "Ulsberget Barnehage",
+		"oest": "311579.00",
+		"nord": "6533106.00",
+		"breddegrad": "58.896244"
+	},
+	{
+		"adresse": "Colin Archers Vei 8",
+		"lengdegrad": "5.721530",
+		"barnehagens_navn": "Ulsnes Barnehage SA",
+		"oest": "311671.35",
+		"nord": "6544033.91",
+		"breddegrad": "58.994281"
+	},
+	{
+		"adresse": "Sara Berges gate 15",
+		"lengdegrad": "5.722394",
+		"barnehagens_navn": "Vågedalen barnehage",
+		"oest": "311299.00",
+		"nord": "6535624.00",
+		"breddegrad": "58.918752"
+	},
+	{
+		"adresse": "Øvre Vågen 11",
+		"lengdegrad": "5.737107",
+		"barnehagens_navn": "Vågen barnehage",
+		"oest": "312546.00",
+		"nord": "6543790.00",
+		"breddegrad": "58.992443"
+	},
+	{
+		"adresse": "Jørden Moes gate 9",
+		"lengdegrad": "5.729571",
+		"barnehagens_navn": "Vålandshaugen barnehage",
+		"oest": "311924.10",
+		"nord": "6539934.56",
+		"breddegrad": "58.957624"
+	},
+	{
+		"adresse": "Egersundsgata 13",
+		"lengdegrad": "5.751855",
+		"barnehagens_navn": "Varden Barnehage",
+		"oest": "313214.20",
+		"nord": "6540078.20",
+		"breddegrad": "58.959211"
+	},
+	{
+		"adresse": "Sørstrandveien 40A",
+		"lengdegrad": "5.723464",
+		"barnehagens_navn": "Vassøy barnehage",
+		"oest": "315339.00",
+		"nord": "6544149.00",
+		"breddegrad": "58.921499"
+	},
+	{
+		"adresse": "Boganesveien 7",
+		"lengdegrad": "5.721291",
+		"barnehagens_navn": "Villrosen Steinerbarnehage",
+		"oest": "311376.00",
+		"nord": "6535933.00",
+		"breddegrad": "58.921511"
+	},
+	{
+		"adresse": "Ulaveien 7",
+		"lengdegrad": "5.676605",
+		"barnehagens_navn": "Ytre Tasta barnehage avd. Eskeland",
+		"oest": "309060.00",
+		"nord": "6543725.00",
+		"breddegrad": "58.990341"
+	},
+	{
+		"adresse": "Gamle Dusevikveien 6",
+		"lengdegrad": "5.682125",
+		"barnehagens_navn": "Ytre tasta barnehage avd. Vardeneset",
+		"oest": "309404.00",
+		"nord": "6544251.00",
+		"breddegrad": "58.995205"
 	}],
 	"page": 1,
 	"pages": 2,
