@@ -108,14 +108,16 @@ var findClosest = function (json) {
     //var work = 'Stokkaveien 9, 4313 Sandnes';
 
     var home = $('#home').val();
+    var work = $('#work').val();
+
+    if (home == '' | work == '') {
+        return;
+    }
 
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': home }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-
             
-
-            var work = $('#work').val();
 
             var distances = [];
             $.each(json.entries, function (key, bhage) {
