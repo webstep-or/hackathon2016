@@ -1,5 +1,8 @@
 ﻿
-var map = L.map('map', { minZoom: 11, maxZoom: 18 }).setView([58.96, 5.73], 10);
+var map = L.map('map', {
+    minZoom: 11,
+    maxZoom: 18
+}).setView([58.96, 5.73], 10);
 
 L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}&format=image/png', {
     attribution: '<a href="http://kartverket.no">Kartverket</a>'
@@ -11,10 +14,10 @@ L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=nor
 
 var markers = L.markerClusterGroup();
 
-var addBhageToMap = function (json) {
-       
+var addBhageToMap = function(json) {
 
-    $.each(json.entries, function (key, bhage) {
+
+    $.each(json.entries, function(key, bhage) {
 
         var title = bhage.barnehagens_navn;
 
@@ -39,7 +42,7 @@ var addBhageToMap = function (json) {
 $.getJSON('data/barnehager.json', addBhageToMap);
 
 
-String.format = function () {
+String.format = function() {
     var s = arguments[0];
     for (var i = 0; i < arguments.length - 1; i++) {
         var reg = new RegExp("\\{" + i + "\\}", "gm");
@@ -48,57 +51,59 @@ String.format = function () {
     return s;
 }
 
-var showResults = function (json)
-{
+var showResults = function(json) {
     var test = 0;
 }
 
-$("#home").on('keyup change', function () {
+$("#home").on('keyup change', function() {
     // Your stuff...
 
     var test = 0;
 });
 
 function distance(lat1, lon1, lat2, lon2) {
-    var p = 0.017453292519943295;    // Math.PI / 180
+    var p = 0.017453292519943295; // Math.PI / 180
     var c = Math.cos;
     var a = 0.5 - c((lat2 - lat1) * p) / 2 +
-            c(lat1 * p) * c(lat2 * p) *
-            (1 - c((lon2 - lon1) * p)) / 2;
+        c(lat1 * p) * c(lat2 * p) *
+        (1 - c((lon2 - lon1) * p)) / 2;
 
     return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
 }
 
 var durations = [];
 
-var testfunc = function (yo) {
+var testfunc = function(yo) {
 
-    durations.push(yo);
+        durations.push(yo);
 
-    if (durations.length == 3) {
-        durations.sort(function (a, b) {
-            var sortStatus = 0;
+        if (durations.length == 3) {
+            durations.sort(function(a, b) {
+                var sortStatus = 0;
 
-            if (a.distance < b.duration) {
-                sortStatus = -1;
-            } else if (a.duration > b.duration) {
-                sortStatus = 1;
-            }
+                if (a.distance < b.duration) {
+                    sortStatus = -1;
+                } else if (a.duration > b.duration) {
+                    sortStatus = 1;
+                }
 
-            return sortStatus;
-        });
+                return sortStatus;
+            });
 
-        for (var j = 0; j < 3; j++)
-        {
-            var resultsDiv = document.getElementById('results' + j);
-            resultsDiv.innerHTML = '';
-            resultsDiv.innerHTML = String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes());
+            for (var j = 0; j < 3; j++) {
+                var resultsDiv = document.getElementById('results' + j);
+                resultsDiv.innerHTML = '';
+                resultsDiv.innerHTML = "<a href='#' onclick='console.log(barnehageListeGeo[" + j + "]))' />  " +  (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) +"</a>";
 
-        };
+
+            };
+            console.log("kom igjen ", barnehageListeGeo);
+        }
     }
-}
+    //svein linje 144
+var barnehageListeGeo = [];
 
-var findClosest = function (json) {   
+var findClosest = function(json) {
 
     var top = 3;
 
@@ -115,17 +120,23 @@ var findClosest = function (json) {
     }
 
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': home }, function (results, status) {
+    geocoder.geocode({
+        'address': home
+    }, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-            
+
 
             var distances = [];
-            $.each(json.entries, function (key, bhage) {
+            $.each(json.entries, function(key, bhage) {
 
-                distances.push({ name: bhage.barnehagens_navn, distance: distance(bhage.breddegrad, bhage.lengdegrad, results[0].geometry.location.lat(), results[0].geometry.location.lng()), point: [Number(bhage.breddegrad), Number(bhage.lengdegrad)] });
+                distances.push({
+                    name: bhage.barnehagens_navn,
+                    distance: distance(bhage.breddegrad, bhage.lengdegrad, results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+                    point: [Number(bhage.breddegrad), Number(bhage.lengdegrad)]
+                });
             });
 
-            distances.sort(function (a, b) {
+            distances.sort(function(a, b) {
                 var sortStatus = 0;
 
                 if (a.distance < b.distance) {
@@ -138,25 +149,27 @@ var findClosest = function (json) {
             });
 
             for (var j = 0; j < top; j++) {
-                console.log(distances[j].name);
+                console.log(distances[j]);
+                barnehageListeGeo[j] = distances[j].point;
                 getDuration(home, work, distances[j], testfunc);
             }
-            
+            console.log(barnehageListeGeo);
+
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
     });
 
 
-    
-}
 
+}
 
 function handleResponse(response, status, kindergarten) {
     if (status !== google.maps.DistanceMatrixStatus.OK) {
         alert('Error was: ' + status);
     } else {
 
+        responseLatLng = response;
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -172,38 +185,45 @@ function handleResponse(response, status, kindergarten) {
             }
 
             console.log(totaltime / 60);
-            testfunc({ name: kindergarten.name, duration: totaltime });
-        }        
+            testfunc({
+                name: kindergarten.name,
+                duration: totaltime
+            });
+        }
 
     }
 }
 
 
-function getDuration (home, work, kindergarten)
-{
+function getDuration(home, work, kindergarten) {
     var baseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json';
     var apiKey = 'AIzaSyBD6NCES0pXlcV8aS_F53rvZ0N6Xy4_Ha0';
-    
+
     var service = new google.maps.DistanceMatrixService;
 
     service.getDistanceMatrix({
         //origins: [{ lat: home[0], lng: home[1] }],
         origins: [home],
         //destinations: [{ lat: kindergarten.point[0], lng: kindergarten.point[1] }, { lat: work[0], lng: work[1] }],
-        destinations: [{ lat: kindergarten.point[0], lng: kindergarten.point[1] }, work],
+        destinations: [{
+            lat: kindergarten.point[0],
+            lng: kindergarten.point[1]
+        }, work],
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
         avoidTolls: false
-    }, function (response, status) { handleResponse(response, status, kindergarten) });
-        
+    }, function(response, status) {
+        handleResponse(response, status, kindergarten)
+    });
+
 }
 
-var findGarten = function ()
-{
+
+var findGarten = function() {
     durations = [];
     $.getJSON('data/barnehager.json', findClosest);
-        
+
     //for (var j = 0; j < 3; j++)
     //{
     //    var resultsDiv = document.getElementById('results'+j);
@@ -226,5 +246,47 @@ var findGarten = function ()
 
 }
 
+//Sveins endringer
+var geoMe = function(homeWork) {
 
+    //fra https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
 
+            if (homeWork == "home") {
+                document.getElementById("home").value = pos.lat + "," + pos.lng;
+            } else if (homeWork = "work") {
+                document.getElementById("work").value = pos.lat + "," + pos.lng;
+            }
+
+        }, function() {
+
+            //handleLocationError(true, infoWindow, map.getCenter());
+
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+//submit når du trykker enter i work input-group
+document.getElementById("work").addEventListener("keydown", function(e) {
+    if (!e) {
+        var e = window.event;
+    }
+    e.preventDefault(); // sometimes useful
+    // Enter is pressed
+    if (e.keyCode == 13) {
+        findGarten();
+    }
+}, false);
+
+var info = document.getElementById("info");
+
+info.stopPropagation();
