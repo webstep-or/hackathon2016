@@ -73,6 +73,8 @@ var durations = [];
 
 var testfunc = function (yo) {
 
+    var list = 3;
+
     durations.push(yo);
 
     if (durations.length == 3) {
@@ -88,7 +90,7 @@ var testfunc = function (yo) {
             return sortStatus;
         });
 
-        for (var j = 0; j < 3; j++)
+        for (var j = 0; j < list; j++)
         {
             var resultsDiv = document.getElementById('results' + j);
             resultsDiv.innerHTML = '';
@@ -100,7 +102,7 @@ var testfunc = function (yo) {
 
 var findClosest = function (json) {   
 
-    var top = 3;
+    var top = 5;
 
     //var home = [58.984617, 5.685487];//hjemme
     //var work = [58.966500, 5.730814]; //forusakutten
