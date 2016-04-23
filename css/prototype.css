@@ -14,3 +14,7 @@
             z-index: 50;
     position: inherit;
 }
+
+#inputBox{
+        z-index: 100;
+}

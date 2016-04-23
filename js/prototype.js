@@ -5,6 +5,43 @@ L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=nor
     attribution: '<a href="http://kartverket.no">Kartverket</a>'
 }).addTo(map);
 
+var homeIcon = L.icon({
+    iconUrl: 'images/home.png',
+    iconSize: [50, 50],
+    iconAnchor: [15, 20]
+});
+var workIcon = L.icon({
+    iconUrl: 'images/office.png',
+    iconSize: [50, 50],
+    iconAnchor: [15, 20]
+});
+var schoolIcon = L.icon({
+    iconUrl: 'images/pacifier_blue.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 20]
+});
+var schoolIconWanted = L.icon({
+    iconUrl: 'images/pacifier_wanted.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 20]
+});
+
+var homeMarker = L.marker([0, 0], {
+    icon: homeIcon
+});
+
+var workMarker = L.marker([0, 0], {
+    icon: workIcon
+});
+
+var chosenSchool = L.marker([0, 0], {
+    icon: schoolIconWanted
+});
+
+var wanted = L.layerGroup([homeMarker, chosenSchool, workMarker]);
+
+//L.control.layers.addOverlay(wanted);
+
 //var geocodingAPI = "http://hotell.difi.no/api/json/stavanger/barnehager?";
 
 //var geocodingAPI2 = "http://hotell.difi.no/api/json/stavanger/barnehager?page=2";
@@ -12,14 +49,15 @@ L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=nor
 var markers = L.markerClusterGroup();
 
 var addBhageToMap = function (json) {
-       
+
 
     $.each(json.entries, function (key, bhage) {
 
         var title = bhage.barnehagens_navn;
 
         var marker = L.marker([bhage.breddegrad, bhage.lengdegrad], {
-            title: title
+            title: title,
+            icon: schoolIcon
         });
         marker.bindPopup(title);
 
@@ -31,6 +69,7 @@ var addBhageToMap = function (json) {
     });
 
     map.addLayer(markers);
+    map.addLayer(wanted);
 
 }
 
@@ -48,12 +87,12 @@ String.format = function () {
     return s;
 }
 
-var showResults = function (json)
-{
+var showResults = function (json) {
     var test = 0;
 }
 
-$("#home").on('keyup change', function () {
+/* Home input */
+$('#home').on('keyup change', function () {
     // Your stuff...
 
     var test = 0;
@@ -63,8 +102,8 @@ function distance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;    // Math.PI / 180
     var c = Math.cos;
     var a = 0.5 - c((lat2 - lat1) * p) / 2 +
-            c(lat1 * p) * c(lat2 * p) *
-            (1 - c((lon2 - lon1) * p)) / 2;
+        c(lat1 * p) * c(lat2 * p) *
+        (1 - c((lon2 - lon1) * p)) / 2;
 
     return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
 }
@@ -88,8 +127,7 @@ var testfunc = function (yo) {
             return sortStatus;
         });
 
-        for (var j = 0; j < 3; j++)
-        {
+        for (var j = 0; j < 3; j++) {
             var resultsDiv = document.getElementById('results' + j);
             resultsDiv.innerHTML = '';
             resultsDiv.innerHTML = String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes());
@@ -98,7 +136,7 @@ var testfunc = function (yo) {
     }
 }
 
-var findClosest = function (json) {   
+var findClosest = function (json) {
 
     var top = 3;
 
@@ -117,7 +155,7 @@ var findClosest = function (json) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({ 'address': home }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
-            
+
 
             var distances = [];
             $.each(json.entries, function (key, bhage) {
@@ -141,14 +179,14 @@ var findClosest = function (json) {
                 console.log(distances[j].name);
                 getDuration(home, work, distances[j], testfunc);
             }
-            
+
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
     });
 
 
-    
+
 }
 
 
@@ -173,17 +211,16 @@ function handleResponse(response, status, kindergarten) {
 
             console.log(totaltime / 60);
             testfunc({ name: kindergarten.name, duration: totaltime });
-        }        
+        }
 
     }
 }
 
 
-function getDuration (home, work, kindergarten)
-{
+function getDuration(home, work, kindergarten) {
     var baseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json';
-    var apiKey = 'AIzaSyBD6NCES0pXlcV8aS_F53rvZ0N6Xy4_Ha0';
-    
+    var apiKey = 'AIzaSyAFOWIKWyyoxvPHDYpE7ah_tN_sJUs2qVU';
+
     var service = new google.maps.DistanceMatrixService;
 
     service.getDistanceMatrix({
@@ -196,14 +233,13 @@ function getDuration (home, work, kindergarten)
         avoidHighways: false,
         avoidTolls: false
     }, function (response, status) { handleResponse(response, status, kindergarten) });
-        
+
 }
 
-var findGarten = function ()
-{
+var findGarten = function () {
     durations = [];
     $.getJSON('data/barnehager.json', findClosest);
-        
+
     //for (var j = 0; j < 3; j++)
     //{
     //    var resultsDiv = document.getElementById('results'+j);
@@ -224,6 +260,111 @@ var findGarten = function ()
     //    }
     //});
 
+}
+
+//Element
+
+var homeField = document.getElementsByTagName('input')[0];
+var workField = document.getElementsByTagName('input')[1];
+
+//leaflet
+
+//Google
+var homeAC, workAC;
+function initAutocomplete() {
+    workAC = new google.maps.places.Autocomplete(/** @type {!HTMLInputElement} */(workField), { types: ['geocode'] });
+    homeAC = new google.maps.places.Autocomplete( /** @type {!HTMLInputElement} */(homeField), { types: ['geocode'] });
+
+    homeAC.addListener('place_changed', chosenHomeAddress);
+    google.maps.event.addListener(workAC, 'place_changed', chosenWorkAddress);
+}
+
+function chosenHomeAddress() {
+    var place = homeAC.getPlace();
+    var coords = [
+        place.geometry.location.lat(),
+        place.geometry.location.lng()
+    ];
+    //center the map to this place
+    centerMap2Place(map);
+
+    //place home marker on map
+    homeMarker.setLatLng(coords);
+    homeMarker.update();
+
+}
+
+function chosenWorkAddress() {
+    var place = workAC.getPlace();
+    var coords = [
+        place.geometry.location.lat(),
+        place.geometry.location.lng()
+    ];
+    
+    //place work marker on map
+    workMarker.setLatLng(coords);
+    workMarker.update();
+    
+    //center the map to to both home and work
+ /*   var workCoords = workMarker.getLatLng();
+    
+    var centerBounds = [];
+    if (workCoords.lat > 0){//check if work field has been set
+        centerBounds.push([workCoords.lat, workCoords.lng]);
+    }
+    centerBounds.push(coords);
+    map.fitBounds(centerBounds);*/
+    centerMap2Place(map);
+
+}
+
+function centerMap2Place(map) {
+    
+    //center the map to to both home and work
+    var workCoords = workMarker.getLatLng();
+    var homeCoords = homeMarker.getLatLng();
+    
+    var centerBounds = [];
+    if (workCoords.lat > 0){//check if work field has been set
+        centerBounds.push([workCoords.lat, workCoords.lng]);
+    }
+    
+    if (homeCoords.lat > 0){//check if home field has been set
+        centerBounds.push([homeCoords.lat, homeCoords.lng]);
+    }
+    
+    if (centerBounds.length > 0){
+            map.fitBounds(centerBounds, {
+                padding: [100, 100]
+            });
+    }
+    
+   /* map.setView(coords, 15, {
+        animate: true
+    });*/
+}
+
+function showPlaceIcon(coords, icon, map) {
+    L.marker(coords, { icon: icon }).addTo(map);
+}
+
+function geolocate() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var geolocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            var circle = new google.maps.Circle({
+                center: geolocation,
+                radius: position.coords.accuracy
+            });
+
+            homeAC.setBounds(circle.getBounds());
+            workAC.setBounds(circle.getBounds());
+        });
+    }
 }
 
 
