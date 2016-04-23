@@ -15,57 +15,68 @@
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+
 </head>
 
 <body>
 
     <style>
         .demo-card-wide.mdl-card {
-            
+
         }
 
-        .demo-card-wide > .mdl-card__title {            
-            
+        .demo-card-wide > .mdl-card__title {
+
         }
 
         .demo-card-wide > .mdl-card__menu {
             color: #fff;
         }
+        .geoMe{
+            float: right;
+            margin-top: -24px;
+            font-size: 25px;
+            text-decoration: inherit;
+        }
+
     </style>
 
 
-    <div id="map">
+    <div id="kart">
         <div id="mny" style="float:right" class="mdl-grid">
 
             <div class="mdl-grid">
 
                 <div class="mdl-cell mdl-cell--4-col">
 
-                    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                        <!--<div class="mdl-card__title">
-                        </div>-->
-                        <div class="mdl-card__supporting-text">
+                    <div class="demo-card-wide mdl-card mdl-shadow--2dp " id="info">
+                        <div class="mdl-card__supporting-text" id="inputBox">
                             <h2 class="mdl-card__title-text">Fyll inn adresser</h2>
 
                             <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" id="home">
+                                <input class="mdl-textfield__input" type="text" id="home" onFocus="Controller.geolocate()"></input>
+                                                                <a href="#"  onclick="Controller.geoMe('home')"  class="geoMe">&#9784;</a>
                                 <label class="mdl-textfield__label" for="home">Hjem</label>
+                               
                             </div>
+
+
                             <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" id="work">
+                                <input class="mdl-textfield__input" type="text" id="work" onFocus="Controller.geolocate()"></input>
+                                <a href="#" onclick="Controller.geoMe('work')" class="geoMe">&#9784;</a>
                                 <label class="mdl-textfield__label" for="work">Jobb</label>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="findGarten()">Finn barnehager</a>
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="Utils.findGarten()">Finn barnehager</a>
                         </div>
                         <!--<div class="mdl-card__menu">
                             <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                                 <i class="material-icons">share</i>
                             </button>
                         </div>-->
-                    </div>   
-                    
+                    </div>
+
                     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__supporting-text">
                             <h2 class="mdl-card__title-text">Resultat</h2>
@@ -80,30 +91,37 @@
                                     <span id="results2" class="mdl-list__item-primary-content"></span>
                                 </li>
                             </ul>
-                        </div>                        
-                    </div> 
-                                    
+                        </div>
+                    </div>
+
                 </div>
-                
+                <div class="mdl-cell mdl-cell--4-col">
+                  dsfsad
+                </div>
             </div>
         </div>
-    </div>   
+    </div>
 
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 
 
-    <script src="js/prototype.js"></script>
+    <script src="js/EventHandler.js"></script>
+    <script src="js/setup.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/controller.js"></script>
 
     <script async defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD6NCES0pXlcV8aS_F53rvZ0N6Xy4_Ha0"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOWIKWyyoxvPHDYpE7ah_tN_sJUs2qVU&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
-    <script src="https://maps.googleapis.com/maps-api-v3/api/js/24/8/intl/no_ALL/common.js"></script>
+<!--    <script src="https://maps.googleapis.com/maps-api-v3/api/js/24/8/intl/no_ALL/common.js"></script>
     <script src="https://maps.googleapis.com/maps-api-v3/api/js/24/8/intl/no_ALL/distance_matrix.js"></script>
-    <script src="https://maps.googleapis.com/maps-api-v3/api/js/24/8/intl/no_ALL/geocoder.js"></script>
+    <script src="https://maps.googleapis.com/maps-api-v3/api/js/24/8/intl/no_ALL/geocoder.js"></script>-->
 </body>
 </html>
