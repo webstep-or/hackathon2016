@@ -169,7 +169,7 @@ function handleResponse(response, status, kindergarten) {
         alert('Error was: ' + status);
     } else {
 
-        responseLatLng = response;
+
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -287,6 +287,8 @@ document.getElementById("work").addEventListener("keydown", function(e) {
     }
 }, false);
 
-var info = document.getElementById("info");
 
-info.stopPropagation();
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  console.log("sdgf");
+}
