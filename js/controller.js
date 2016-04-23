@@ -109,6 +109,13 @@ var Controller = (function () {
                 };
 
                 Views.setGeoLocation(target, pos);
+                
+                if (target === 'home'){
+                    Map.homeMarker.setLatLng([pos.lat, pos.lng]).setOpacity(1).update();
+                }else{
+                    Map.workMarker.setLatLng([pos.lat, pos.lng]).setOpacity(1).update();
+                }
+                centerMap2Place();
             }, function () {
 
                 //handleLocationError(true, infoWindow, map.getCenter());
