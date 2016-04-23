@@ -21,11 +21,11 @@
 
     <style>
         .demo-card-wide.mdl-card {
-            
+
         }
 
-        .demo-card-wide > .mdl-card__title {            
-            
+        .demo-card-wide > .mdl-card__title {
+
         }
 
         .demo-card-wide > .mdl-card__menu {
@@ -41,7 +41,7 @@
 
                 <div class="mdl-cell mdl-cell--4-col">
 
-                    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="demo-card-wide mdl-card mdl-shadow--2dp " id="info">
                         <!--<div class="mdl-card__title">
                         </div>-->
                         <div class="mdl-card__supporting-text" id="inputBox">
@@ -50,10 +50,14 @@
                             <div class="mdl-textfield mdl-js-textfield">
                                 <input class="mdl-textfield__input" type="text" id="home" onFocus="geolocate()"></input>
                                 <label class="mdl-textfield__label" for="home">Hjem</label>
+                                <a href="#" class="" id="" onclick="geoMe('home')">Finn min posisjon</a>
                             </div>
+
+
                             <div class="mdl-textfield mdl-js-textfield">
                                 <input class="mdl-textfield__input" type="text" id="work" onFocus="geolocate()"></input>
                                 <label class="mdl-textfield__label" for="work">Jobb</label>
+                                  <a href="#" class="" id="" onclick="geoMe('work')">Finn min posisjon</a>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -64,8 +68,8 @@
                                 <i class="material-icons">share</i>
                             </button>
                         </div>-->
-                    </div>   
-                    
+                    </div>
+
                     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__supporting-text">
                             <h2 class="mdl-card__title-text">Resultat</h2>
@@ -80,16 +84,16 @@
                                     <span id="results2" class="mdl-list__item-primary-content"></span>
                                 </li>
                             </ul>
-                        </div>                        
-                    </div> 
-                                    
+                        </div>
+                    </div>
+
                 </div>
-                
+
             </div>
         </div>
-    </div>   
+    </div>
 
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 

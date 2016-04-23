@@ -1,5 +1,8 @@
 ﻿
-var map = L.map('map', { minZoom: 11, maxZoom: 18 }).setView([58.96, 5.73], 10);
+var map = L.map('map', {
+    minZoom: 11,
+    maxZoom: 18
+}).setView([58.96, 5.73], 10);
 
 L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}&format=image/png', {
     attribution: '<a href="http://kartverket.no">Kartverket</a>'
@@ -50,7 +53,6 @@ var markers = L.markerClusterGroup();
 
 var addBhageToMap = function (json) {
 
-
     $.each(json.entries, function (key, bhage) {
 
         var title = bhage.barnehagens_navn;
@@ -91,15 +93,14 @@ var showResults = function (json) {
     var test = 0;
 }
 
-/* Home input */
-$('#home').on('keyup change', function () {
+$("#home").on('keyup change', function () {
     // Your stuff...
 
     var test = 0;
 });
 
 function distance(lat1, lon1, lat2, lon2) {
-    var p = 0.017453292519943295;    // Math.PI / 180
+    var p = 0.017453292519943295; // Math.PI / 180
     var c = Math.cos;
     var a = 0.5 - c((lat2 - lat1) * p) / 2 +
         c(lat1 * p) * c(lat2 * p) *
@@ -130,11 +131,14 @@ var testfunc = function (yo) {
         for (var j = 0; j < 3; j++) {
             var resultsDiv = document.getElementById('results' + j);
             resultsDiv.innerHTML = '';
-            resultsDiv.innerHTML = String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes());
+            resultsDiv.innerHTML = "<a href='#' onclick='console.log(barnehageListeGeo[" + j + "]))' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
 
         };
+        console.log("kom igjen ", barnehageListeGeo);
     }
 }
+//svein linje 144
+var barnehageListeGeo = [];
 
 var findClosest = function (json) {
 
@@ -153,14 +157,20 @@ var findClosest = function (json) {
     }
 
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ 'address': home }, function (results, status) {
+    geocoder.geocode({
+        'address': home
+    }, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
 
 
             var distances = [];
             $.each(json.entries, function (key, bhage) {
 
-                distances.push({ name: bhage.barnehagens_navn, distance: distance(bhage.breddegrad, bhage.lengdegrad, results[0].geometry.location.lat(), results[0].geometry.location.lng()), point: [Number(bhage.breddegrad), Number(bhage.lengdegrad)] });
+                distances.push({
+                    name: bhage.barnehagens_navn,
+                    distance: distance(bhage.breddegrad, bhage.lengdegrad, results[0].geometry.location.lat(), results[0].geometry.location.lng()),
+                    point: [Number(bhage.breddegrad), Number(bhage.lengdegrad)]
+                });
             });
 
             distances.sort(function (a, b) {
@@ -176,25 +186,26 @@ var findClosest = function (json) {
             });
 
             for (var j = 0; j < top; j++) {
-                console.log(distances[j].name);
+                console.log(distances[j]);
+                barnehageListeGeo[j] = distances[j].point;
                 getDuration(home, work, distances[j], testfunc);
             }
+
+            console.log(barnehageListeGeo);
 
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
     });
 
-
-
 }
-
 
 function handleResponse(response, status, kindergarten) {
     if (status !== google.maps.DistanceMatrixStatus.OK) {
         alert('Error was: ' + status);
     } else {
 
+        responseLatLng = response;
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -210,7 +221,10 @@ function handleResponse(response, status, kindergarten) {
             }
 
             console.log(totaltime / 60);
-            testfunc({ name: kindergarten.name, duration: totaltime });
+            testfunc({
+                name: kindergarten.name,
+                duration: totaltime
+            });
         }
 
     }
@@ -227,14 +241,20 @@ function getDuration(home, work, kindergarten) {
         //origins: [{ lat: home[0], lng: home[1] }],
         origins: [home],
         //destinations: [{ lat: kindergarten.point[0], lng: kindergarten.point[1] }, { lat: work[0], lng: work[1] }],
-        destinations: [{ lat: kindergarten.point[0], lng: kindergarten.point[1] }, work],
+        destinations: [{
+            lat: kindergarten.point[0],
+            lng: kindergarten.point[1]
+        }, work],
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
         avoidTolls: false
-    }, function (response, status) { handleResponse(response, status, kindergarten) });
+    }, function (response, status) {
+        handleResponse(response, status, kindergarten)
+    });
 
 }
+
 
 var findGarten = function () {
     durations = [];
@@ -300,48 +320,48 @@ function chosenWorkAddress() {
         place.geometry.location.lat(),
         place.geometry.location.lng()
     ];
-    
+
     //place work marker on map
     workMarker.setLatLng(coords);
     workMarker.update();
-    
+
     //center the map to to both home and work
- /*   var workCoords = workMarker.getLatLng();
-    
-    var centerBounds = [];
-    if (workCoords.lat > 0){//check if work field has been set
-        centerBounds.push([workCoords.lat, workCoords.lng]);
-    }
-    centerBounds.push(coords);
-    map.fitBounds(centerBounds);*/
+    /*   var workCoords = workMarker.getLatLng();
+       
+       var centerBounds = [];
+       if (workCoords.lat > 0){//check if work field has been set
+           centerBounds.push([workCoords.lat, workCoords.lng]);
+       }
+       centerBounds.push(coords);
+       map.fitBounds(centerBounds);*/
     centerMap2Place(map);
 
 }
 
 function centerMap2Place(map) {
-    
+
     //center the map to to both home and work
     var workCoords = workMarker.getLatLng();
     var homeCoords = homeMarker.getLatLng();
-    
+
     var centerBounds = [];
-    if (workCoords.lat > 0){//check if work field has been set
+    if (workCoords.lat > 0) {//check if work field has been set
         centerBounds.push([workCoords.lat, workCoords.lng]);
     }
-    
-    if (homeCoords.lat > 0){//check if home field has been set
+
+    if (homeCoords.lat > 0) {//check if home field has been set
         centerBounds.push([homeCoords.lat, homeCoords.lng]);
     }
-    
-    if (centerBounds.length > 0){
-            map.fitBounds(centerBounds, {
-                padding: [100, 100]
-            });
+
+    if (centerBounds.length > 0) {
+        map.fitBounds(centerBounds, {
+            padding: [100, 100]
+        });
     }
-    
-   /* map.setView(coords, 15, {
-        animate: true
-    });*/
+
+    /* map.setView(coords, 15, {
+         animate: true
+     });*/
 }
 
 function showPlaceIcon(coords, icon, map) {
@@ -368,4 +388,47 @@ function geolocate() {
 }
 
 
+//Sveins endringer
+var geoMe = function (homeWork) {
 
+    //fra https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            if (homeWork == "home") {
+                document.getElementById("home").value = pos.lat + "," + pos.lng;
+            } else if (homeWork = "work") {
+                document.getElementById("work").value = pos.lat + "," + pos.lng;
+            }
+
+        }, function () {
+
+            //handleLocationError(true, infoWindow, map.getCenter());
+
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+}
+
+//submit når du trykker enter i work input-group
+document.getElementById("work").addEventListener("keydown", function (e) {
+    if (!e) {
+        var e = window.event;
+    }
+    e.preventDefault(); // sometimes useful
+    // Enter is pressed
+    if (e.keyCode == 13) {
+        findGarten();
+    }
+}, false);
+
+var info = document.getElementById("info");
+
+info.stopPropagation();
