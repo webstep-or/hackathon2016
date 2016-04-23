@@ -42,9 +42,9 @@ var Map = (function () {
         iconAnchor: [15, 20]
     });
     var schoolIconWanted = L.icon({
-        iconUrl: 'images/pacifier_wanted.png',
-        iconSize: [30, 30],
-        iconAnchor: [15, 20]
+        iconUrl: 'images/pacifier_green.png',
+        iconSize: [50, 50],
+        iconAnchor: [10, 20]
     });
 
     //custom markers
@@ -58,15 +58,17 @@ var Map = (function () {
         opacity: 0
     });
 
-    var chosenSchool = L.marker([0, 0], {
+    var chosenSchoolMarker = L.marker([0, 0], {
         icon: schoolIconWanted,
         opacity: 0
     });
 
-    var wanted = L.layerGroup([homeMarker, chosenSchool, workMarker]);//group the markers
+    var wanted = L.layerGroup([homeMarker, chosenSchoolMarker, workMarker]);//group the markers
 
     //cluster the schools
     var markers = L.markerClusterGroup();
+    
+    var allSchoolMarkers = [];
 
     var addBhageToMap = function (json) {
 
@@ -78,6 +80,7 @@ var Map = (function () {
                 title: title,
                 icon: schoolIcon
             });
+            allSchoolMarkers.push(marker);
             marker.bindPopup(title);
 
             markers.addLayer(marker);
@@ -95,17 +98,38 @@ var Map = (function () {
      * @param places is array of coordinates each coordinates is an array of 2 LatLng
      */
     function centerPlacesInMap(places) {
-        map.fitBounds(places, {
+        var coords = [];
+        
+        coords.push(places);
+        chosenSchoolMarker.setLatLng(places).setOpacity(1).update();
+        coords.push([homeMarker.getLatLng().lat, homeMarker.getLatLng().lng]);
+        
+        disableMarker(chosenSchoolMarker); //disable the blue marker in position
+        
+        map.fitBounds(coords, {
             padding: [100, 100]
         });
     }
+    
+    function disableMarker(marker){
+        for(var i in allSchoolMarkers){
+            var m = allSchoolMarkers[i];
+            if (m.getLatLng().lat === marker.getLatLng().lat && m.getLatLng().lng === marker.getLatLng().lng){
+                m.setZIndexOffset(0);
+            }else{
+                m.setZIndexOffset(10);
+            }
+        }
+    }
+    
+    
 
     return {
         instance: map,
         centerPlacesInMap: centerPlacesInMap,
         homeMarker: homeMarker,
         workMarker: workMarker,
-        chosenSchool: chosenSchool,
+        chosenSchool: chosenSchoolMarker,
         //events
         onInit: onInit
 

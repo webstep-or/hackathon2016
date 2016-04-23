@@ -29,7 +29,7 @@ var Utils = (function () {
         return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
     }
 
-    var barnehageListeGeo = []; 
+    var barnehageListeGeo = [];
     /**
      * Finds the closest Kindergartens from a coordinate or address
      * 
@@ -127,7 +127,7 @@ var Utils = (function () {
 
     function handleResponse(response, status, kindergarten) {
 
-//responseLatLng = response;
+        //responseLatLng = response;
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -173,7 +173,7 @@ var Utils = (function () {
             for (var j = 0; j < 3; j++) {
                 var resultsDiv = document.getElementById('results' + j);
                 resultsDiv.innerHTML = '';
-                resultsDiv.innerHTML = "<a href='#' onclick='console.log(Utils.barnehageListeGeo[" + j + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
+                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap(Utils.barnehageListeGeo[" + j + "]);console.log(Utils.barnehageListeGeo[" + j + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
 
             };
             console.log("kom igjen ", barnehageListeGeo);
@@ -183,6 +183,7 @@ var Utils = (function () {
     function findGarten() {
         durations = [];
         $.getJSON('data/barnehager.json', findClosestSchools);
+        $("#barnehage-resultat").animate({ top: "-249px" });
     }
 
     return {
