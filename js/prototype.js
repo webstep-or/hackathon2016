@@ -1,19 +1,22 @@
 ﻿
-//svein linje 144
+var map = L.map('map', {
+    minZoom: 11,
+    maxZoom: 18
+}).setView([58.96, 5.73], 10);
+
+L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}&format=image/png', {
+    attribution: '<a href="http://kartverket.no">Kartverket</a>'
+}).addTo(map);
+
+//var geocodingAPI = "http://hotell.difi.no/api/json/stavanger/barnehager?";
+
+//var geocodingAPI2 = "http://hotell.difi.no/api/json/stavanger/barnehager?page=2";
+
+var markers = L.markerClusterGroup();
+
+var addBhageToMap = function(json) {
 
 
-
-
-
-/*function showPlaceIcon(coords, icon, map) {
-    L.marker(coords, { icon: icon }).addTo(map);
-}*/
-
-
-<<<<<<< HEAD
-//Sveins endringer
-
-=======
     $.each(json.entries, function(key, bhage) {
 
         var title = bhage.barnehagens_navn;
@@ -155,6 +158,8 @@ var findClosest = function(json) {
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
+
+
     });
 
 
@@ -221,6 +226,12 @@ var findGarten = function() {
     durations = [];
     $.getJSON('data/barnehager.json', findClosest);
 
+                $("#barnehage-resultat").animate({top:"-249px"});
+
+
+
+
+
     //for (var j = 0; j < 3; j++)
     //{
     //    var resultsDiv = document.getElementById('results'+j);
@@ -277,16 +288,9 @@ document.getElementById("work").addEventListener("keydown", function(e) {
     if (!e) {
         var e = window.event;
     }
-    e.preventDefault(); // sometimes useful
+    //e.preventDefault(); // sometimes useful
     // Enter is pressed
     if (e.keyCode == 13) {
         findGarten();
     }
 }, false);
-
-
-
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  console.log("sdgf");
-}
->>>>>>> origin/svein
