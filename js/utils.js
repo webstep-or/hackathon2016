@@ -8,7 +8,7 @@ var Utils = (function () {
             s = s.replace(reg, arguments[i + 1]);
         }
         return s;
-    }
+    }  
 
     /**
      * Calculates the air distance between 2 coordinates
@@ -27,9 +27,9 @@ var Utils = (function () {
             (1 - c((lon2 - lon1) * p)) / 2;
 
         return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-    }
+    }       
 
-    var barnehageListeGeo = [];
+    //var barnehageListeGeo = [];
     /**
      * Finds the closest Kindergartens from a coordinate or address
      * 
@@ -79,11 +79,8 @@ var Utils = (function () {
 
                 for (var j = 0; j < top; j++) {
                     console.log(distances[j]);
-                    barnehageListeGeo[j] = distances[j].point;
-                    getDuration(home, work, distances[j], testfunc);
+                    getDuration(home, work, distances[j]);
                 }
-
-                console.log(barnehageListeGeo);
 
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
@@ -125,9 +122,10 @@ var Utils = (function () {
 
     }
 
+    
+
     function handleResponse(response, status, kindergarten) {
 
-        //responseLatLng = response;
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -137,14 +135,13 @@ var Utils = (function () {
             var totaltime = 0;
             for (var j = 0; j < results.length; j++) {
 
-                console.log(results[j].duration.text);
-
                 totaltime += Number(results[j].duration.value);
             }
 
-            console.log(totaltime / 60);
+            console.log(String.format("{0}: {1} min ({2})", kindergarten.name , totaltime / 60, totaltime));
             testfunc({
                 name: kindergarten.name,
+                point: kindergarten.point,
                 duration: totaltime
             });
         }
@@ -153,11 +150,12 @@ var Utils = (function () {
 
     var durations = [];
 
+    // TODO: rewrite to better
     var testfunc = function (yo) {
 
         durations.push(yo);
 
-        if (durations.length == 3) {
+        if (durations.length == 5) {
             durations.sort(function (a, b) {
                 var sortStatus = 0;
 
@@ -173,10 +171,9 @@ var Utils = (function () {
             for (var j = 0; j < 3; j++) {
                 var resultsDiv = document.getElementById('results' + j);
                 resultsDiv.innerHTML = '';
-                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap(Utils.barnehageListeGeo[" + j + "]);console.log(Utils.barnehageListeGeo[" + j + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
+                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap([" +  durations[j].point + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
 
             };
-            console.log("kom igjen ", barnehageListeGeo);
         }
     }
 
@@ -189,6 +186,5 @@ var Utils = (function () {
     return {
         airDistP2P: airDistance,
         findGarten: findGarten,
-        barnehageListeGeo: barnehageListeGeo
     }
 })();
