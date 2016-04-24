@@ -8,7 +8,7 @@ var Utils = (function () {
             s = s.replace(reg, arguments[i + 1]);
         }
         return s;
-    }
+    }  
 
     /**
      * Calculates the air distance between 2 coordinates
@@ -27,9 +27,9 @@ var Utils = (function () {
             (1 - c((lon2 - lon1) * p)) / 2;
 
         return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-    }
+    }       
 
-    var barnehageListeGeo = [];
+    //var barnehageListeGeo = [];
     /**
      * Finds the closest Kindergartens from a coordinate or address
      * 
@@ -79,11 +79,12 @@ var Utils = (function () {
 
                 for (var j = 0; j < top; j++) {
                     console.log(distances[j]);
-                    barnehageListeGeo[j] = distances[j].point;
+                    //barnehageListeGeo[j] = distances[j].point;
+                    //barnehageListeGeo[j] = distances[j];
                     getDuration(home, work, distances[j], testfunc);
                 }
 
-                console.log(barnehageListeGeo);
+                //console.log(barnehageListeGeo);
 
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
@@ -125,6 +126,8 @@ var Utils = (function () {
 
     }
 
+    
+
     function handleResponse(response, status, kindergarten) {
 
         //responseLatLng = response;
@@ -145,6 +148,7 @@ var Utils = (function () {
             console.log(totaltime / 60);
             testfunc({
                 name: kindergarten.name,
+                point: kindergarten.point,
                 duration: totaltime
             });
         }
@@ -173,10 +177,9 @@ var Utils = (function () {
             for (var j = 0; j < 3; j++) {
                 var resultsDiv = document.getElementById('results' + j);
                 resultsDiv.innerHTML = '';
-                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap(Utils.barnehageListeGeo[" + j + "]);console.log(Utils.barnehageListeGeo[" + j + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
+                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap([" +  durations[j].point + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
 
             };
-            console.log("kom igjen ", barnehageListeGeo);
         }
     }
 
@@ -189,6 +192,6 @@ var Utils = (function () {
     return {
         airDistP2P: airDistance,
         findGarten: findGarten,
-        barnehageListeGeo: barnehageListeGeo
+        //barnehageListeGeo: barnehageListeGeo
     }
 })();
