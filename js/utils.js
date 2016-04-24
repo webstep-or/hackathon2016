@@ -79,12 +79,8 @@ var Utils = (function () {
 
                 for (var j = 0; j < top; j++) {
                     console.log(distances[j]);
-                    //barnehageListeGeo[j] = distances[j].point;
-                    //barnehageListeGeo[j] = distances[j];
-                    getDuration(home, work, distances[j], testfunc);
+                    getDuration(home, work, distances[j]);
                 }
-
-                //console.log(barnehageListeGeo);
 
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
@@ -130,7 +126,6 @@ var Utils = (function () {
 
     function handleResponse(response, status, kindergarten) {
 
-        //responseLatLng = response;
         var originList = response.originAddresses;
 
         for (var i = 0; i < originList.length; i++) {
@@ -140,12 +135,10 @@ var Utils = (function () {
             var totaltime = 0;
             for (var j = 0; j < results.length; j++) {
 
-                console.log(results[j].duration.text);
-
                 totaltime += Number(results[j].duration.value);
             }
 
-            console.log(totaltime / 60);
+            console.log(String.format("{0}: {1} min ({2})", kindergarten.name , totaltime / 60, totaltime));
             testfunc({
                 name: kindergarten.name,
                 point: kindergarten.point,
@@ -157,11 +150,12 @@ var Utils = (function () {
 
     var durations = [];
 
+    // TODO: rewrite to better
     var testfunc = function (yo) {
 
         durations.push(yo);
 
-        if (durations.length == 3) {
+        if (durations.length == 5) {
             durations.sort(function (a, b) {
                 var sortStatus = 0;
 
@@ -192,6 +186,5 @@ var Utils = (function () {
     return {
         airDistP2P: airDistance,
         findGarten: findGarten,
-        //barnehageListeGeo: barnehageListeGeo
     }
 })();
