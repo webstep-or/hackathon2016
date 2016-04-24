@@ -45,9 +45,9 @@ var Views = (function () {
 
     function setGeoLocation(target, pos) {
         if (target == "home") {
-            document.getElementById("home").value = pos.lat.toFixed(2) + "," + pos.lng.toFixed(2);
+            document.getElementById("home").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
         } else if (target = "work") {
-            document.getElementById("work").value = pos.lat.toFixed(2) + "," + pos.lng.toFixed(2);
+            document.getElementById("work").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
         }
     }
 
