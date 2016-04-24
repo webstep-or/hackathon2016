@@ -10,11 +10,20 @@
         height: 100%;
 }
 
- #mny {
-            z-index: 50;
-    position: inherit;
+#mny {
+    /*z-index: 50;
+    position: inherit;*/
 }
 
 #inputBox{
         z-index: 100;
+}
+
+@media all and (max-width: 300px) {
+
+    #mny {
+    /*z-index: 50;
+    position: inherit;*/
+    
+    }
 }
