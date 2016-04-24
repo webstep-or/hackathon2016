@@ -21,60 +21,48 @@
 <body>
 
     <style>
-        .demo-card-wide.mdl-card {
-
-        }
-
-        .demo-card-wide > .mdl-card__title {
-
-        }
-
-        .demo-card-wide > .mdl-card__menu {
-            color: #fff;
-        }
+        
         .geoMe{
             float: right;
             margin-top: -24px;
             font-size: 25px;
             text-decoration: inherit;
         }
-
     </style>
 
 
     <div id="kart">
-        <div id="mny" style="float:right" class="mdl-grid">
 
-            <div class="mdl-grid">
+            <div id="mny" class="mdl-grid">
 
-                <div class="mdl-cell mdl-cell--4-col">
+                <div class="mdl-cell mdl-cell--8-col"></div>
+                
+                <div class="mdl-cell mdl-cell--2-col">
 
-                    <div class="demo-card-wide mdl-card mdl-shadow--2dp " id="info">
+                    <div class="mdl-card mdl-shadow--2dp " id="info">
                         <div class="mdl-card__supporting-text" id="inputBox">
                             <h2 class="mdl-card__title-text">Fyll inn adresser</h2>
 
                             <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" id="home" onFocus="Controller.geolocate()"></input>
-                                                                <a href="#"  onclick="Controller.geoMe('home')"  class="geoMe">&#9784;</a>
+                                <input class="mdl-textfield__input" type="text" id="home" onFocus="Controller.geolocate()" placeholder="Hjem" />
+                                <a href="#" onclick="Controller.geoMe('home')" class="geoMe">&#9784;</a>
                                 <label class="mdl-textfield__label" for="home">Hjem</label>
-
                             </div>
-
-
+                            
                             <div class="mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" id="work" onFocus="Controller.geolocate()"></input>
+                                <input class="mdl-textfield__input" type="text" id="work" onFocus="Controller.geolocate()" placeholder="Jobb"/>
                                 <a href="#" onclick="Controller.geoMe('work')" class="geoMe">&#9784;</a>
                                 <label class="mdl-textfield__label" for="work">Jobb</label>
                             </div>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="Utils.findGarten()">Finn barnehager</a>
-                        </div>                        
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="Utils.findGarten()">Finn barnehager</a>
+                        </div>                           
                     </div>
 
-                    <div class="demo-card-wide mdl-card mdl-shadow--2dp" id="barnehage-resultat">
+                    <div id="barnehage-resultat"  class="mdl-card mdl-shadow--2dp" style="display: none">
                         <div class="mdl-card__supporting-text">
-                            <h2 class="mdl-card__title-text">Resultat</h2>
+                            <h2 class="mdl-card__title-text">Barnehager på vei til jobb</h2>                            
                             <ul class="mdl-list">
                                 <li class="mdl-list__item">
                                     <span id="results0" class="mdl-list__item-primary-content"></span>
@@ -89,10 +77,9 @@
                         </div>
                     </div>
 
-                </div>
-                
+                </div>                                
+                <div class="mdl-cell mdl-cell--2-col"></div>
             </div>
-        </div>
     </div>
 
 
