@@ -180,6 +180,7 @@ var Utils = (function () {
     function findGarten() {
         durations = [];
         $.getJSON('data/barnehager.json', findClosestSchools);
+        $("#barnehage-resultat").show();
         $("#barnehage-resultat").animate({ top: "-249px" });
     }
 
