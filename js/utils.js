@@ -171,7 +171,7 @@ var Utils = (function () {
             for (var j = 0; j < 3; j++) {
                 var resultsDiv = document.getElementById('results' + j);
                 resultsDiv.innerHTML = '';
-                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap([" +  durations[j].point + "])' />  " + (j + 1) + ". " + String.format("{0} {1} min", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
+                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap([" +  durations[j].point + "])' />  " + (j + 1) + ". " + String.format("Ved levering til {0} bruker du {1} min til jobb", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
 
             };
         }
@@ -181,7 +181,8 @@ var Utils = (function () {
         durations = [];
         $.getJSON('data/barnehager.json', findClosestSchools);
         $("#barnehage-resultat").show();
-        $("#barnehage-resultat").animate({ top: "-249px" });
+        //$("#barnehage-resultat").animate({ top: "-249px" });
+        $(".collapse").collapse('hide');
     }
 
     return {

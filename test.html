@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    
+    <link rel="stylesheet" href="css/prototype.css" />
+
+
+</head>
+<body style="margin:5px">
+    <header>
+
+    </header>
+    <div class="container">
+        <div class="row">
+                <div class="panel panel-default" style="margin-bottom:10px">
+                    <div class="panel-heading">
+                        <a href="#collapse1" data-toggle="collapse" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                        
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse">
+                        <div class="row" style="margin:10px">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input id="home" type="text" class="form-control" placeholder="hjem" onFocus="Controller.geolocate()">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="Controller.geoMe('home')">
+                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                        </button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div>
+                        <div class="row" style="margin:10px">
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <input id="work" type="text" class="form-control" placeholder="jobb" onFocus="Controller.geolocate()">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" onclick="Controller.geoMe('work')">
+                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                        </button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+
+                        <div class="row" style="margin:10px">
+                            <button class="btn btn-primary" type="button" style="float:right" onclick="Utils.findGarten();">
+                                Finn barnehager
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+
+        <div id="kart" class="row">
+
+        </div>
+
+        <div class="row" style="margin-top: 10px">
+            <ul id="barnehage-resultat" class="list-group" style="display: none">
+                <li class="list-group-item list-group-item-success">
+                    <span id="results0"></span>
+                </li>
+                <li class="list-group-item list-group-item-info">
+                    <span id="results1"></span>
+                </li>
+                <li class="list-group-item list-group-item-warning">
+                    <span id="results2"></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    
+
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+
+
+    <script src="js/EventHandler.js"></script>
+    <script src="js/setup.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/controller.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFOWIKWyyoxvPHDYpE7ah_tN_sJUs2qVU&libraries=places&callback=initAutocomplete"></script>
+
+</body>
+</html>
