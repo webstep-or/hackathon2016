@@ -80,10 +80,17 @@ var Map = (function () {
                 title: title,
                 icon: schoolIcon
             });
+            
             allSchoolMarkers.push(marker);
+
+
             marker.bindPopup(title);
 
             markers.addLayer(marker);
+
+            // if no clustering
+            //marker.addTo(map);
+
         });
 
         map.addLayer(markers);
