@@ -34,6 +34,8 @@ var Controller = (function () {
 
         //center the map to this place
         centerMap2Place();
+
+        State.setHome({ address: place.formatted_address, location: coords })
     }
 
     function chosenWorkAddress() {
@@ -50,6 +52,9 @@ var Controller = (function () {
 
         //center the map to to both home and work
         centerMap2Place();
+
+        State.setWork({ address: place.formatted_address, location: coords })
+
     }
 
     function centerMap2Place() {
@@ -93,8 +98,34 @@ var Controller = (function () {
 
                 Views.homeAC.setBounds(circle.getBounds());
                 Views.workAC.setBounds(circle.getBounds());
+                                
             });
         }
+    }
+
+    function getGeocodeAddressDeferred(geocoder, location) {
+        var deferreds = [];
+       
+        deferreds.push(geocodeAddress(geocoder, location));
+
+        return deferreds;
+    }
+
+    function geocodeAddress(geocoder, location) {
+        var deferred = $.Deferred();
+
+        //geocoder.geocode({ 'location': latLng }, function (results, status) {
+        //    if (status === google.maps.GeocoderStatus.OK) {
+        //        deferred.resolve(results[0].formatted_address);
+        //    }
+        //});
+
+        geocoder.geocode({ 'location': location }, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                deferred.resolve({ address: results[0].formatted_address, location: [results[0].geometry.location.lat(), results[0].geometry.location.lng()] });
+            }
+        });
+        return deferred.promise();
     }
 
     function geoMe(target) {
@@ -108,13 +139,37 @@ var Controller = (function () {
                     lng: position.coords.longitude
                 };
 
-                Views.setGeoLocation(target, pos);
+
+                var geocoder = new google.maps.Geocoder();
+                var deferreds = getGeocodeAddressDeferred(geocoder, pos);
+
+                $.when.apply($, deferreds).done(function (locations) {
+
+                    //print results
+                    $.each(arguments, function (i, data) {
+                        //$("div#result").append(data + "<br/>");
+                        //console.log(data);
+
+                        Views.setAddressField(target, data.address);
+
+                        if (target == 'home') {
+                            State.setHome(data);
+                        }
+                        else {
+                            State.setWork(data);
+                        }
+
+                    });
+                });
+
+                //Views.setGeoLocation(target, pos);
                 
                 if (target === 'home'){
                     Map.homeMarker.setLatLng([pos.lat, pos.lng]).setOpacity(1).update();
                 }else{
                     Map.workMarker.setLatLng([pos.lat, pos.lng]).setOpacity(1).update();
-                }
+                }              
+
                 centerMap2Place();
             }, function () {
 

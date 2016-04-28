@@ -56,7 +56,7 @@ var Utils = (function () {
 
 
                 var distances = [];
-                $.each(schools.entries, function (key, bhage) {
+                $.each(schools, function (key, bhage) {
 
                     distances.push({
                         name: bhage.barnehagens_navn,
@@ -117,14 +117,14 @@ var Utils = (function () {
             if (status !== google.maps.DistanceMatrixStatus.OK) {
                 alert('Error was: ' + status);
             }
-            handleResponse(response, status, kindergarten)
+            handleResponse(response, kindergarten)
         });
 
     }
 
     
 
-    function handleResponse(response, status, kindergarten) {
+    function handleResponse(response, kindergarten) {
 
         var originList = response.originAddresses;
 
@@ -177,9 +177,168 @@ var Utils = (function () {
         }
     }
 
+    function getDurationsDeferred(distanceService, candidates) {
+        var deferreds = [];
+
+        $.each(candidates, function (i, candidate) {
+            deferreds.push(getDuration2(distanceService, candidate));
+        });
+
+        return deferreds;
+    }
+
+    function getDuration2(distanceService, candidate) {
+        var deferred = $.Deferred();
+        
+        distanceService.getDistanceMatrix({
+            //origins: [{ lat: home[0], lng: home[1] }],
+            origins: [State.getHome().address, { lat: candidate.point[0], lng: candidate.point[1] }],
+            //destinations: [{ lat: kindergarten.point[0], lng: kindergarten.point[1] }, { lat: work[0], lng: work[1] }],
+            destinations: [{ lat: candidate.point[0], lng: candidate.point[1] }, State.getWork().address],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+        }, function (response, status) {
+            if (status !== google.maps.DistanceMatrixStatus.OK) {
+                alert('Error was: ' + status);
+            }
+
+            var originList = response.originAddresses;
+
+            var time2garten = response.rows[0].elements[0].duration.value;
+            var time2work = response.rows[1].elements[1].duration.value;
+
+            deferred.resolve({
+                        name: candidate.name,
+                        point: candidate.point,
+                        duration: time2garten + time2work
+                    });
+
+            //for (var i = 0; i < originList.length; i++) {
+
+            //    var results = response.rows[i].elements;
+
+            //    var totaltime = 0;
+            //    for (var j = 0; j < results.length; j++) {
+
+            //        totaltime += Number(results[j].duration.value);
+            //    }
+            //    deferred.resolve({
+            //        name: candidate.name,
+            //        point: candidate.point,
+            //        duration: totaltime
+            //    });
+            //}
+
+        });
+
+        //geocoder.geocode({ 'location': latLng }, function (results, status) {
+        //    if (status === google.maps.GeocoderStatus.OK) {
+        //        deferred.resolve(results[0].formatted_address);
+        //    }
+        //});
+
+        //geocoder.geocode({ 'address': address }, function (results, status) {
+        //    if (status === google.maps.GeocoderStatus.OK) {
+        //        deferred.resolve({ address: results[0].formatted_address, location: [results[0].geometry.location.lat(), results[0].geometry.location.lng()] });
+        //    }
+        //});
+        return deferred.promise();
+    }
+
+
+    function get5ClosestTo(lat, lng) {
+
+        var kindergartens = State.getKindergartens();
+
+        var distances = [];
+        $.each(kindergartens, function (key, bhage) {
+
+            distances.push({
+                name: bhage.barnehagens_navn,
+                distance: Utils.airDistP2P(bhage.breddegrad, bhage.lengdegrad, lat, lng),
+                point: [Number(bhage.breddegrad), Number(bhage.lengdegrad)]
+            });
+        });
+
+        distances.sort(function (a, b) {
+            var sortStatus = 0;
+
+            if (a.distance < b.distance) {
+                sortStatus = -1;
+            } else if (a.distance > b.distance) {
+                sortStatus = 1;
+            }
+
+            return sortStatus;
+        });
+
+        return distances.slice(0, 4);
+    }
+
     function findGarten() {
+
+        //reset
         durations = [];
-        $.getJSON('data/barnehager.json', findClosestSchools);
+
+        var home = State.getHome();
+        var work = State.getWork()
+
+        var top5home = get5ClosestTo(home.location[0], home.location[1]);
+        var top5work = get5ClosestTo(work.location[0], work.location[1]);
+
+        var candidates = $.merge(top5home, top5work);
+
+        var service = new google.maps.DistanceMatrixService;
+
+        var deferreds = getDurationsDeferred(service, candidates);
+
+        $.when.apply($, deferreds).done(function (locations) {
+
+            var durations = [];
+            //print results
+            $.each(arguments, function (i, data) {
+                //$("div#result").append(data + "<br/>");
+                //console.log(data);
+                durations.push(data);
+            });
+
+            durations.sort(function (a, b) {
+                var sortStatus = 0;
+
+                if (a.distance < b.duration) {
+                    sortStatus = -1;
+                } else if (a.duration > b.duration) {
+                    sortStatus = 1;
+                }
+
+                return sortStatus;
+            });
+
+            $.each(durations, function (i, data) {
+
+                console.log(data);
+
+            });
+
+            for (var j = 0; j < 3; j++) {
+                var resultsDiv = document.getElementById('results' + j);
+                resultsDiv.innerHTML = '';
+                resultsDiv.innerHTML = "<a href='#' onclick='Map.centerPlacesInMap([" + durations[j].point + "])' />  " + (j + 1) + ". " + String.format("Ved levering til {0} bruker du {1} min til jobb", durations[j].name, new Date(durations[j].duration * 1000).getMinutes()) + "</a>";
+            };
+
+
+        });
+
+        //$.each(candidates, function (key, candidate) {
+
+            
+        //});
+        
+        //findClosestSchools(State.getKindergartens());
+
+        //$.getJSON('data/barnehager.json', findClosestSchools);
         $("#barnehage-resultat").show();
         //$("#barnehage-resultat").animate({ top: "-249px" });
         $(".collapse").collapse('hide');

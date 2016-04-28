@@ -43,11 +43,26 @@ var Views = (function () {
         //TODO
     }
 
+    function setAddressField(target, address)
+    {
+        if (target == "home")
+        {
+            homeField.value = address;
+        }
+        else if (target = "work")
+        {
+            workField.value = address;
+        }
+    }
+
     function setGeoLocation(target, pos) {
-        if (target == "home") {
-            document.getElementById("home").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
+        if (target == "home")
+        {
+            homeField.value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
+            //document.getElementById("home").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
         } else if (target = "work") {
-            document.getElementById("work").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
+            //document.getElementById("work").value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
+            workField.value = pos.lat.toFixed(6) + "," + pos.lng.toFixed(6);
         }
     }
 
@@ -58,6 +73,7 @@ var Views = (function () {
         homeAC: homeAC,
         workAC: workAC,
         setGeoLocation: setGeoLocation,
+        setAddressField, setAddressField,
         //event
         onFindKinderGarten: onFindKinderGarten
     };

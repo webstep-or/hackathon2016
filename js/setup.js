@@ -72,6 +72,9 @@ var Map = (function () {
 
     var addBhageToMap = function (json) {
 
+        // add all to state
+        State.setKindergartens(json.entries);
+
         $.each(json.entries, function (key, bhage) {
 
             var title = bhage.barnehagens_navn;
@@ -109,7 +112,7 @@ var Map = (function () {
         
         coords.push(places);
         chosenSchoolMarker.setLatLng(places).setOpacity(1).update();
-        coords.push([homeMarker.getLatLng().lat, homeMarker.getLatLng().lng]);
+        //coords.push([homeMarker.getLatLng().lat, homeMarker.getLatLng().lng]);
         
         disableMarker(chosenSchoolMarker); //disable the blue marker in position
         
